@@ -1,0 +1,35 @@
+
+html, body {
+    height: 100%;
+}
+
+.want {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+section {
+    margin-bottom: 200px;
+}
+
+section:nth-of-type(1) {
+    .red-text {
+        color: red;
+    }
+}
+
+
+
+
+div .my-paragraph #my-span {
+    color: green;
+}
+
+.test-tube {
+    height: 100px;
+}
+
+.green-text {
+    color: green;
+}

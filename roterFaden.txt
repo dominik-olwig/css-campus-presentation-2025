@@ -1,0 +1,41 @@
+1. Basics - Selectors, Properties, Values
+
+- Definition: Was ist ein Selector, Property, Value?
+- Einfache Selectoren vorstellen (Element, Class, Id)
+- Eine Verknüpfungsart vorstellen (" " Descendant combinator)
+
+Welcher Selector gewinnt?
+
+Frage 1: Es gewinnt der Selektor, der später definiert wird
+
+Frage 2: Es gewinnt der Selektor mit der höheren Spezifizität (Element vs Class)
+
+Spazifizität am Beispiel erklären
+
+Frage 3: Beispiel für Spezifizität
+
+!important erklären 
+
+Frage 4: Combinatoren verändern Spezifizität nicht
+
+// TODO: Inheritance (siehe Arbeitsrechner)
+
+
+2. Boxmodel, Display & Position
+2.1. Boxmodel
+- erklären
+- Beispiel zeigen (zwei Boxen nebeneinander)
+- Outline Beispiel zeigen
+
+2.2 Display
+- Block-level vs Inline elemente vorstellen
+- Liste von einigen Elementen zeigen
+- Frage: Größe von inline elementen ändern geht nicht
+
+
+// TODO
+- display Property erklären (wie werden children angeordnet vs. wie verhält sich das Element selbst)
+- Frage: Collapsing margins zeigen
+    - todo: wann genau tritt das auf???
+    - Lösung mit display: flow-root um parent div
+- display: contents vorstellen

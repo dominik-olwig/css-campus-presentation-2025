@@ -1,0 +1,20 @@
+p {
+    margin: 0;
+}
+
+.demo p, .demo span {
+    border: 1px solid black;
+}
+
+.example-2 {
+    border: 1px solid black;
+}
+
+.example-2 p {
+    padding: 12px;
+    margin: 12px;
+    /* outline: 24px solid red; */
+    outline: 4px solid red;
+    border: 12px solid blue;
+    background-color: yellow;
+  }

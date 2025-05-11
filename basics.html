@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./basics.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script defer src="util.js"></script>
+</head>
+
+<body>
+  <a href="/">back</a>
+  <h1>1. Selectors, Properties, Values</h1>
+
+  <!-- Introduction to Selectors, Properties, Values -->
+  <section>
+    <fieldset class="want">
+      <legend>What we want</legend>
+      <span class="red-text">Text with the color red</span>
+    </fieldset>
+    <pre>
+      <code class="language-html">
+        <div>
+          <p class="my-paragraph">
+            <span id="my-span">Text with the color red</span>
+          </p>
+        </div>
+      </code>
+    </pre>
+    <pre>
+      <code class="language-css">
+        div .my-paragraph #my-span {
+          color: red;
+        }
+      </code>
+    </pre>
+    <!-- <div class="demo-area">
+      <div>
+        <p class="my-paragraph">
+          <span id="my-span">Hello World</span>
+        </p>
+      </div>
+    </div> -->
+  </section>
+
+
+  <!-- Default rule for selecting style rules -->
+  <section>
+    <h2>Question 1: Which color will the text have?</h2>
+    <pre>
+      <code class="language-html">
+        <p>Hello World</p>
+      </code>
+    </pre>
+    <pre>
+      <code class="language-css">
+        p {
+          color: red;
+        }
+        p {
+          color: green;
+        }
+      </code>
+    </pre>
+    <div class="answers">
+      <div class="option">
+        Error - Page does not render
+      </div>
+      <div class="option">
+        Text is red
+      </div>
+      <div class="option" right>
+        Text is green
+      </div>
+      <img src="res/clap.png" width="100">
+      <img src="res/surprise.png" width="100">
+      <img src="res/yes.png" width="100">
+    </div>
+    <button class="reveil-correct-answer-button" onclick="showCorrectAnswer(this)">show solution</button>
+  </section>
+
+
+
+
+
+  <!-- Default rule for selecting style rules -->
+  <section>
+    <h2>Question 2: Which color will the text have?</h2>
+    <pre>
+      <code class="language-html">
+        <p class="text-class">Hello World</p>
+      </code>
+    </pre>
+    <pre>
+      <code class="language-css">
+        .text-class {
+          color: red;
+        }
+        p {
+          color: green;
+        }
+      </code>
+    </pre>
+    <div class="answers">
+      <div class="option">
+        Error - Page does not render
+      </div>
+      <div class="option" right>
+        Text is red
+      </div>
+      <div class="option">
+        Text is green
+      </div>
+      <img src="res/clap.png" width="100">
+      <img src="res/surprise.png" width="100">
+      <img src="res/yes.png" width="100">
+    </div>
+    <button class="reveil-correct-answer-button" onclick="showCorrectAnswer(this)">show solution</button>
+  </section>
+
+  
+
+  <h2>Specificity</h2>
+
+  [inline style], [id], [class], [element]
+
+
+  <pre>
+    <code class="language-html">
+      <p id="text-id" class="text-class">Hello World</p>
+
+      <!-- 1,0,0,0 -->
+      <p style="color: cyan"></p>
+    </code>
+  </pre>
+
+  <pre>
+    <code class="language-css">
+      /* 0,1,0,0 */
+      #text-id {
+        color: green;
+      }
+      /* 0,0,1,0 */
+      .text-class {
+        color: red;
+      }
+      /* 0,0,0,1 */
+      p {
+        color: yellow;
+      }
+    </code>
+  </pre>
+
+
+  TODO: IDE support for CSS specificity
+
+  --- Question ? --- Which color will the text have?
+
+  <pre>
+    <code class="language-html">
+      <p id="text-id" class="class1 class2 class3">Hello World</p>
+    </code>
+  </pre>
+
+  <pre>
+    <code class="language-css">
+      p.class1.class2.class3 {
+        color: red;
+      }
+      #text-id {
+        color: green;
+      }
+    </code>
+  </pre>
+
+  Solution: 0,0,3,1 < 0,1,0,0 --- Question ? --- Which color will the text have? <pre>
+    <code class="language-html">
+      <p id="text-id" class="class1 class2 class3">Hello World</p>
+    </code>
+    </pre>
+
+    <pre>
+    <code class="language-css">
+      p {
+        color: red !important;
+      }
+      #text-id {
+        color: green;
+      }
+    </code>
+  </pre>
+
+    Solution: Important wins over any other other specificity.
+    -> You should not use "!important", because it is very hard to override it
+
+    --- Question ? --- Which color will the text have?
+
+    <pre>
+    <code class="language-html">
+      <div class="container">
+        <p class="class1">Hello World</p>
+      </div>
+    </code>
+  </pre>
+
+    <pre>
+    <code class="language-css">
+      .container:has.class1 {
+        color: red;
+      }
+      .container .class1 {
+        color: green;
+      }
+    </code>
+  </pre>
+
+    Solution: chaining operator does not change specificity. Same specificity -> color: green
+
+
+    <h2>Inheritance</h2>
+
+    <pre>
+    <code class="language-html">
+      <p class="green-text">This paragraph has <em>emphasized text</em> in it.</p>
+    </code>
+  </pre>
+
+    <pre>
+    <code class="language-css">
+      .green-text {
+        color: green
+      }
+    </code>
+  </pre>
+
+    <div class="demo-area">
+      <p class="green-text">This paragraph has <em>emphasized text</em> in it.</p>
+    </div>
+
+
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./display-and-position.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script defer src="util.js"></script>
+</head>
+
+<body>
+  <a href="/">back</a>
+  <h1>2. Boxmodel, Display & Position</h1>
+
+  <h2>Boxmodel</h2>
+
+  <img src="res/boxmodel.png" />
+
+  <pre>
+    <code class="language-html">
+      <p>text 1</p>
+    </code>
+
+    <code class="language-css">
+      p {
+        background-color: yellow;
+        padding: 12px;
+        margin: 12px;
+        border: 12px solid blue;
+        outline: 24px solid red;
+      }
+    </code>
+  </pre>
+
+  <div class="example-2">
+    <p>text 1</p>
+  </div>
+
+  Learning: Outline starts after border, overlays margin and surrounding elements
+
+
+
+
+  <h2>Display</h2>
+
+  <pre>
+    <code class="language-html">
+      <p>text 1</p>
+      <p>text 2</p>
+    </code>
+  </pre>
+
+  <div class="demo">
+    <p>text 1</p>
+    <p>text 2</p>
+  </div>
+
+  <pre>
+    <code class="language-html">
+      <span>text 1</span>
+      <span>text 2</span>
+    </code>
+  </pre>
+
+  <div class="demo">
+    <span>text 1</span>
+    <span>text 2</span>
+  </div>
+
+  <h3>--- Question 1 ---</h3>
+
+  <pre>
+    <code class="language-html">
+      <span style="height: 100px;">text 1</span>
+      <span style="width: 200px">text 2</span>
+    </code>
+  </pre>
+
+  <div class="demo">
+    <span style="height: 100px;">text 1</span>
+    <span style="width: 200px;">text 2</span>
+  </div>
+    
+  Learning: Inline elements cannot be resized <br><br>
+
+  block level elements
+  <ul>
+    <li>div</li>
+    <li>form</li>
+    <li>h1-h6</li>
+    <li>p</li>
+    <li>ul, li</li>
+    <li>table</li>
+  </ul>
+
+  inline elements
+  <ul>
+    <li>a</li>
+    <li>b</li>
+    <li>br</li>
+    <li>button</li>
+    <li>img</li>
+    <li>input</li>
+    <li>span</li>
+  </ul>
+
+  <h3>--- Question 2 ---</h3>
+
+  <pre>
+    <code class="language-html">
+      <p style="margin-bottom: 50px;">text 1</p>
+      <p style="margin-top: 50px">text 2</p>
+    </code>
+  </pre>
+
+  <div class="demo">
+    <div style="display: flex; flex-direction: row; gap: 16px;">
+      <div style="margin-right: 64px;">
+        <!-- <div style="display: flow-root;"> -->
+        <p style="margin-bottom: 50px;">text 1</p>
+        <!-- </div> -->
+        <p style="margin-top: 50px;">text 2</p>
+      </div>
+      <label style="margin-top: 20px;">100px:</label>
+      <div style="height: 100px; width: 2px; background: black; margin-bottom: 8px; margin-top: 20px;"></div>
+    </div>    
+  </div>
+
+  Learning: Blockformatting context -> avoid collapsing margins, flex and grid also create new block formatting context
+
+  <h1>TODO: height/width: 100%</h1>
+
+
+</html>
