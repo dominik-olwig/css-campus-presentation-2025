@@ -2,11 +2,11 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="./basics.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script defer src="util.js"></script>
+  <script defer src="../util.js"></script>
 </head>
 
 <body>
@@ -123,12 +123,14 @@
 
   <h2>Specificity</h2>
 
-  [inline style], [id], [class], [element]
+  <p class="specificity-explaination" style="margin: 48px 0;">
+    <span>(Inline style)</span><span>Id</span><span>Class</span><span>Element</span>
+  </p>
 
 
   <pre>
     <code class="language-html">
-      <p id="text-id" class="text-class">Hello World</p>
+      <p id="text-id" class="class1 class2">Hello World</p>
 
       <!-- 1,0,0,0 -->
       <p style="color: cyan"></p>
@@ -137,18 +139,26 @@
 
   <pre>
     <code class="language-css">
-      /* 0,1,0,0 */
-      #text-id {
-        color: green;
-      }
-      /* 0,0,1,0 */
-      .text-class {
-        color: red;
-      }
       /* 0,0,0,1 */
       p {
         color: yellow;
       }
+
+      /* 0,0,1,0 */
+      .class1 {
+        color: red;
+      }
+
+      /* 0,1,0,0 */
+      #text-id {
+        color: green;
+      }
+      
+      /* 0,0,2,1 */
+      p.class1.class2 {
+        color: orange;
+      }
+      
     </code>
   </pre>
 

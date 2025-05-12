@@ -19,7 +19,12 @@ section:nth-of-type(1) {
     }
 }
 
-
+.specificity-explaination span {
+    font-size: 24px;
+    padding: 24px;
+    background-color: lightblue;
+    border: 2px solid black;
+}
 
 
 div .my-paragraph #my-span {
